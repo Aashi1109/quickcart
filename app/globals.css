@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-start {
+    @apply flex justify-start items-center;
+  }
+
+  .flex-end {
+    @apply flex justify-end items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer components {
+  .footer {
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+    /* border-top-right-radius: 50%; */
+  }
+
+  @media screen and (max-width: 500px) {
+    .footer {
+      clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%) !important;
+      /* border-top-right-radius: 50%; */
+    }
+  }
+
+  .footer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    background: red;
+    border-radius: 0 50% 0 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  .card {
+    @apply rounded-3xl shadow-sm;
+  }
+
+  .heading-1 {
+    @apply text-2xl font-medium;
+  }
+
+  .separator {
+    @apply w-full h-[1px] bg-gray-300;
+  }
+
+  .button {
+    @apply bg-black text-white rounded-full px-4 py-1;
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "theme_color": "#000",
+  "background_color": "#fff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "name": "QuickCart",
+  "short_name": "QuickCart",
+  "description": "A PWA for ecommerce website",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+
+    {
+      "src": "/assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "splash_images": null
+}

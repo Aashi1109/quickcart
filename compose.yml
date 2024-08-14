@@ -1,0 +1,10 @@
+services:
+  quickcart:
+    build: .
+    image: aashishpal09/quickcart:1.0.0
+    container_name: quickcart
+    restart: always
+    env_file:
+      - ./.env.prod
+    ports:
+      - "3000:3000"
