@@ -1,4 +1,4 @@
-export { default as ProductActionButtons } from "./ProductActionButtons";
+export { default as ProductActionButtons } from "./ProductActions/ProductDetailActions";
 export { default as ProductCard } from "./ProductCard";
 export { default as ProductDescription } from "./ProductDescription";
 export { default as ProductDetails } from "./ProductDetails";

@@ -1,11 +1,11 @@
 import React from "react";
 
-import { IProduct } from "@/types";
 import { StarRating } from "@/components/reviews";
-import ProductPrice from "./ProductPrice";
-import ProductInfo from "./ProductInfo";
+import { IProduct } from "@/types";
+import ProductDetailActions from "./ProductActions/ProductDetailActions";
 import ProductDescription from "./ProductDescription";
-import ProductActionButtons from "./ProductActionButtons";
+import ProductInfo from "./ProductInfo";
+import ProductPrice from "./ProductPrice";
 
 interface ProductDetailsProps {
   productData: IProduct;
@@ -29,7 +29,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productData }) => (
     <div className="separator" />
     <ProductDescription description={productData.description || ""} />
 
-    <ProductActionButtons productData={productData} />
+    <ProductDetailActions productData={productData} />
   </div>
 );
 

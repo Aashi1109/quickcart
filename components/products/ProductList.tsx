@@ -15,14 +15,7 @@ const ProductList = forwardRef<HTMLDivElement, IProps>(
       <div className={cn("flex gap-4", classes)} ref={ref}>
         {products.map((product) => (
           <div className="flex-1" key={product.id}>
-            <ProductCard
-              company={product.brand}
-              discount={product.discountPercentage}
-              id={product.id}
-              imageUrl={product.thumbnail}
-              price={product.price}
-              title={product.title}
-            />
+            <ProductCard product={product} />
           </div>
         ))}
       </div>

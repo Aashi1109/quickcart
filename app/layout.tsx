@@ -1,4 +1,4 @@
-import { AppProviderWrapper } from "@/components/containers";
+import { RootProvider } from "@/components/providers";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -41,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AppProviderWrapper>{children}</AppProviderWrapper>
+        <RootProvider>{children}</RootProvider>
       </body>
     </html>
   );

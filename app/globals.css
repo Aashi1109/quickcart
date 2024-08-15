@@ -66,4 +66,15 @@
   .button {
     @apply bg-black text-white rounded-full px-4 py-1;
   }
+  .outline-button {
+    @apply px-4 py-1 text-white border-2 border-white rounded-full;
+  }
+
+  .dropdown {
+    @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-gray-200 min-w-[210px] flex flex-col gap-2 justify-end items-end;
+  }
+
+  .dropdown_link {
+    @apply text-sm text-gray-700 hover:text-gray-500 font-medium;
+  }
 }

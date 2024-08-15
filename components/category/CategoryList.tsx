@@ -13,7 +13,7 @@ const CategoryList = ({
   return (
     <div className="flex flex-col gap-4">
       <p className="heading-1">Categories</p>
-      <div className="flex flex-wrap gap-6 justify-center">
+      <div className="flex flex-wrap gap-4 sm:gap-6 justify-around">
         {categories.data
           .slice(0, showAllCards ? undefined : numberOfCardsToShow)
           .map((category) => (

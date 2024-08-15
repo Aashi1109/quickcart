@@ -12,12 +12,12 @@ const Footer = () => {
   return (
     <footer
       className={cn(
-        "flex bg-black text-white p-4 md:p-16 footer pt-24 flex-col md:flex-row gap-16"
+        "flex bg-black text-white p-4 md:p-16 footer pt-24 lg:pt-28 pb-8 flex-col md:flex-row gap-16"
       )}
     >
       <div className="flex flex-col items-center sm:items-start gap-4 font-light flex-1">
         <p className="text-3xl text-center tracking-widest uppercase">
-          Next EC
+          QuickCart
           <Image
             src={"/assets/images/logo2.png"}
             alt="QuickCart Logo"
@@ -25,7 +25,6 @@ const Footer = () => {
             height={28}
             className="object-contain inline-block bg-gray-100 rounded-full mb-1"
           />
-          MMERCE
         </p>
 
         <p className="text-sm text-wrap">

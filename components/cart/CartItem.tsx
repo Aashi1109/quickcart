@@ -1,8 +1,7 @@
-import React from "react";
-import CartProduct from "./CartProduct";
-import CartQuantity from "./CartQuantity";
 import { useAppState } from "@/hooks";
 import { ICartProduct } from "@/types";
+import CartProduct from "./CartProduct";
+import CartQuantity from "./CartQuantity";
 
 const CartItem = ({
   product,
@@ -18,7 +17,9 @@ const CartItem = ({
       <td>#{index + 1}</td>
       <CartProduct product={product} />
       <td>${product.price}</td>
-      <CartQuantity product={product} dispatch={dispatch} />
+      <td>
+        <CartQuantity product={product} dispatch={dispatch} />
+      </td>
       <td>
         <p className="font-medium">
           ${(product.price * product.quantity).toFixed(2)}

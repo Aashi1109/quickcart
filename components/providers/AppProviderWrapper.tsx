@@ -2,14 +2,14 @@
 
 import { AppProvider } from "@/context";
 import { ReactNode } from "react";
-import Footer from "./Footer";
-import Nav from "./Nav";
+import { Footer, Nav } from "../containers";
+import { cn } from "@/lib/utils";
 
 const AppProviderWrapper = ({ children }: { children: ReactNode }) => {
   return (
     <AppProvider>
       <Nav />
-      <main className="px-4 sm:px-10 md:px-16 py-2 sm:py-5 md:py-8">
+      <main className={cn("px-4 sm:px-10 md:px-16 py-4 pb-8 sm:py-8")}>
         {children}
       </main>
       <Footer />
@@ -17,4 +17,4 @@ const AppProviderWrapper = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export default AppProviderWrapper;
+export { AppProviderWrapper };
