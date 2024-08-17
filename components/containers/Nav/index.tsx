@@ -26,6 +26,7 @@ const Nav = () => {
             <NavHeader />
             <div className="flex-center gap-4">
               <CurrencySelector />
+              <CartIcon />
               <AuthActions />
             </div>
           </div>

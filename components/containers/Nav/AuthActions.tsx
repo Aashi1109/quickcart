@@ -1,4 +1,3 @@
-import { useMediaQuery } from "@/hooks";
 import { getProviders, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import DesktopAuthActions from "./DesktopAuthActions";
@@ -17,10 +16,6 @@ const AuthActions = () => {
 
     providersSet();
   }, []);
-
-  if (!session) {
-    return null;
-  }
 
   return (
     <>

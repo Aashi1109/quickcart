@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC, useState } from "react";
 
-const MobileAuthActions: FC<{ session: Session; providers: any }> = ({
+const MobileAuthActions: FC<{ session?: Session | null; providers: any }> = ({
   session,
   providers,
 }) => {

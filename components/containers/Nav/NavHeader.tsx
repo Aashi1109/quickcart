@@ -12,7 +12,7 @@ const NavHeader = () => {
         src={"/assets/images/logo2.png"}
       />
 
-      <p className="text-xl font-light tracking-widest uppercase ">QuickCart</p>
+      <p className="text-xl font-light tracking-widest uppercase">QuickCart</p>
     </Link>
   );
 };

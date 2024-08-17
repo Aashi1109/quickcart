@@ -52,7 +52,7 @@ const CurrencySelector = () => {
             selected={key === currentCurrency}
             data-value={value}
           >
-            {symbol && <span className="text-lg">({symbol})</span>} {name}
+            {symbol && `(${symbol})`} {name}
           </option>
         );
       })}

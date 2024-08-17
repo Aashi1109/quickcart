@@ -1,15 +1,13 @@
-import { Heart } from "lucide-react";
 import { Session } from "next-auth";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
-import Link from "next/link";
 import { FC } from "react";
 import WishList from "./WishList";
 
-const DesktopAuthActions: FC<{ session: Session; providers: any }> = ({
-  session,
-  providers,
-}) => {
+const DesktopAuthActions: FC<{
+  session?: Session | null;
+  providers: any;
+}> = ({ session, providers }) => {
   return (
     <div className="sm:flex hidden">
       {session?.user ? (
