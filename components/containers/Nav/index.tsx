@@ -1,4 +1,7 @@
+"use client";
+
 import CartIcon from "@/components/CartIcon";
+import CurrencySelector from "@/components/CurrencySelector";
 import { SearchBar } from "@/components/reviews";
 import { useMediaQuery } from "@/hooks";
 import AuthActions from "./AuthActions";
@@ -13,6 +16,7 @@ const Nav = () => {
         <>
           <NavHeader />
           <SearchBar />
+          <CurrencySelector />
           <CartIcon />
           <AuthActions />
         </>
@@ -20,7 +24,10 @@ const Nav = () => {
         <div className="flex flex-col w-full p-2 sm:p-0">
           <div className="flex-between mb-4">
             <NavHeader />
-            <AuthActions />
+            <div className="flex-center gap-4">
+              <CurrencySelector />
+              <AuthActions />
+            </div>
           </div>
           <SearchBar />
         </div>

@@ -1,6 +1,7 @@
 // utils/cartUtils.ts
 
-import { IAppState, ICartTotals } from "@/types";
+import { ICartTotals } from "@/types";
+import { IAppState } from "@/types/context";
 
 /**
  * Checks if a product is already in the cart.

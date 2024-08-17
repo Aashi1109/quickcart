@@ -1,4 +1,4 @@
-import { addToCart, removeFromCart } from "@/context/appAction";
+import { addToCart, removeFromCart } from "@/context/actions/cart";
 import { isProductInCart } from "@/lib/cartUtils";
 import { IProduct } from "@/types";
 import { IAppDispatch, IAppState } from "@/types/context";

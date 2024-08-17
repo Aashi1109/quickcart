@@ -1,5 +1,6 @@
 import { useAppState } from "@/hooks";
 import { ICartProduct } from "@/types";
+import DynamicPrice from "../DynamicPrice";
 import CartProduct from "./CartProduct";
 import CartQuantity from "./CartQuantity";
 
@@ -16,14 +17,14 @@ const CartItem = ({
     <tr className="">
       <td>#{index + 1}</td>
       <CartProduct product={product} />
-      <td>${product.price}</td>
+      <td>
+        <DynamicPrice price={product.price} />
+      </td>
       <td>
         <CartQuantity product={product} dispatch={dispatch} />
       </td>
       <td>
-        <p className="font-medium">
-          ${(product.price * product.quantity).toFixed(2)}
-        </p>
+        <DynamicPrice price={product.price * product.quantity} />
       </td>
     </tr>
   );

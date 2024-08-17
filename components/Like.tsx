@@ -1,18 +1,19 @@
 "use client";
 
-import { toggleProductLike } from "@/context/appAction";
+import { toggleProductLike } from "@/context/actions/like";
 import { isProductLiked } from "@/lib/likeUtils";
 import { cn } from "@/lib/utils";
+import { IProduct } from "@/types";
 import { IAppDispatch, IAppState } from "@/types/context";
 import { Heart } from "lucide-react";
 
 interface IProps {
-  productId: number;
+  product: IProduct;
   state: IAppState;
   dispatch: IAppDispatch;
 }
-const Like = ({ productId, state, dispatch }: IProps) => {
-  const isLiked = isProductLiked(state.likedProducts, productId);
+const Like = ({ product, state, dispatch }: IProps) => {
+  const isLiked = isProductLiked(state.likedProducts, product.id);
 
   return (
     <Heart
@@ -21,7 +22,7 @@ const Like = ({ productId, state, dispatch }: IProps) => {
       })}
       fill={isLiked ? "red" : "white"}
       onClick={(e) => {
-        toggleProductLike(dispatch, productId);
+        toggleProductLike(dispatch, product);
       }}
     />
   );

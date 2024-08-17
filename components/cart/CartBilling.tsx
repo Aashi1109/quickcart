@@ -1,6 +1,6 @@
 import { getTotalAmountDiscountInCart } from "@/lib/cartUtils";
-import { IAppState } from "@/types";
-import React from "react";
+import { IAppState } from "@/types/context";
+import DynamicPrice from "../DynamicPrice";
 
 const CartBilling = ({ cart }: { cart: IAppState["cart"] }) => {
   const { originalTotal, discountedTotal } = getTotalAmountDiscountInCart(cart);
@@ -8,25 +8,26 @@ const CartBilling = ({ cart }: { cart: IAppState["cart"] }) => {
 
   const grandTotal = discountedTotal + salesTax;
 
-  console.log(cart.products);
-
   return (
     <div className="flex flex-col gap-4 w-80 self-center lg:self-end">
       <div className="flex-between">
         <p>Subtotal:</p>
-        <p>${originalTotal.toFixed(2)}</p>
+        <DynamicPrice price={originalTotal} makeBold={false} />
       </div>
       <div className="flex-between">
         <p>Sales tax:</p>
-        <p>${salesTax.toFixed(2)}</p>
+        <DynamicPrice price={salesTax} makeBold={false} />
       </div>
       <div className="flex-between">
         <p>Discount:</p>
-        <p>${(originalTotal - discountedTotal).toFixed(2)}</p>
+        <DynamicPrice
+          price={originalTotal - discountedTotal}
+          makeBold={false}
+        />
       </div>
-      <div className="flex-between  text-xl">
+      <div className="flex-between text-xl">
         <p>Grand Total:</p>
-        <p>${grandTotal.toFixed(2)}</p>
+        <DynamicPrice price={grandTotal} />
       </div>
 
       <button type="button" className="button">

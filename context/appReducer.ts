@@ -1,4 +1,5 @@
-import { IAppActions, IAppState } from "@/types";
+import { isProductLiked } from "@/lib/likeUtils";
+import { IAppActions, IAppState } from "@/types/context";
 
 const appReducer = (state: IAppState, action: IAppActions): IAppState => {
   switch (action.type) {
@@ -33,13 +34,24 @@ const appReducer = (state: IAppState, action: IAppActions): IAppState => {
         },
       };
     case "TOGGLE_PRODUCT_LIKE":
-      const isProductLiked = state.likedProducts.includes(action.productId);
-      const updatedLikedProducts = isProductLiked
-        ? state.likedProducts.filter((pid) => pid !== action.productId)
-        : [...state.likedProducts, action.productId];
+      // TODO remove this logic when proper db implementation is done
+      const _isProductLiked = isProductLiked(
+        state.likedProducts,
+        action.product.id
+      );
+      const updatedLikedProducts = _isProductLiked
+        ? state.likedProducts.filter(
+            (product) => product.id !== action.product.id
+          )
+        : [...state.likedProducts, action.product];
       return {
         ...state,
         likedProducts: updatedLikedProducts,
+      };
+    case "UPDATE_CURRENCY":
+      return {
+        ...state,
+        settings: { ...state.settings, currency: action.currency },
       };
     default:
       return state;

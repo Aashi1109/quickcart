@@ -1,14 +1,15 @@
-import { IAppActions, IAppState } from "@/types";
+import { IAppDispatch, IAppState } from "@/types/context";
 import { createContext } from "react";
 
 export const initialState: IAppState = {
   cart: { products: [] },
-  likedProducts: [], // Array of product IDs that the user has liked
+  likedProducts: [],
+  settings: { currency: { name: "USD", value: 1 } },
 };
 
 const AppContext = createContext<{
   state: IAppState;
-  dispatch: React.Dispatch<IAppActions>;
+  dispatch: IAppDispatch;
 }>({ state: initialState, dispatch: () => null });
 
 export default AppContext;

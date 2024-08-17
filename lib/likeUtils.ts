@@ -1,6 +1,6 @@
-import { IAppState } from "@/types";
+import { IAppState } from "@/types/context";
 
 export const isProductLiked = (
   likedProducts: IAppState["likedProducts"],
   productId: number
-) => likedProducts.includes(productId);
+) => likedProducts.some((prod) => prod.id === productId);

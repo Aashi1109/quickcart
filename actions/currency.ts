@@ -2,13 +2,11 @@
 
 import config from "@/config";
 
-export const getLatestConversionRates = async (
-  baseCurrency: "USD" | "INR" | string
-) => {
+export const getLatestConversionRates = async (baseCurrency: string) => {
   try {
     const fetchUrl =
       config.exchangeRateAPI.baseUrl +
-      `/${process.env.EXCHANGE_RATE_API_KEY || ""}/${baseCurrency}`;
+      `/${config.exchangeRateAPI.apiKey}/latest/${baseCurrency}`;
 
     const request = await fetch(fetchUrl);
     const result = await request.json();

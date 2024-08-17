@@ -9,13 +9,15 @@ const Cart = () => {
   const productsInCart = getNumberOfProductsInCart(state.cart);
 
   return (
-    <div className="flex flex-col gap-6 py-10">
-      <p className="heading-1 text-center">Your cart({productsInCart} items)</p>
+    <div className="flex flex-col gap-6 min-h-[40vh]">
+      <p className="heading-1">
+        Your cart {productsInCart !== 0 && `(${productsInCart} items)`}
+      </p>
 
       {/* render all products if present */}
-      <div className="flex-center overflow-auto">
+      <div className="flex-center overflow-auto flex-1">
         {productsInCart === 0 ? (
-          <p>No products in cart</p>
+          <p>No products in cart yet.</p>
         ) : (
           <CartInfo cart={state.cart} />
         )}

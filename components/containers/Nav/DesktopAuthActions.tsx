@@ -1,8 +1,10 @@
+import { Heart } from "lucide-react";
 import { Session } from "next-auth";
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
+import WishList from "./WishList";
 
 const DesktopAuthActions: FC<{ session: Session; providers: any }> = ({
   session,
@@ -12,9 +14,7 @@ const DesktopAuthActions: FC<{ session: Session; providers: any }> = ({
     <div className="sm:flex hidden">
       {session?.user ? (
         <div className="flex-center gap-3 md:gap-5">
-          <Link href="/liked-products" className="black_btn">
-            Wishlist
-          </Link>
+          <WishList />
           <button
             className="outline-button"
             type="button"

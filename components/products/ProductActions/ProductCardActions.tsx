@@ -2,23 +2,30 @@
 
 import Like from "@/components/Like";
 import { useAppState } from "@/hooks";
+import { cn } from "@/lib/utils";
 import { IProduct } from "@/types";
+import { ClassValue } from "clsx";
 import CartAction from "./CartAction";
-import CartButtonActionComponent from "./CartAction/ButtonBased";
 import IconBased from "./CartAction/IconBased";
 
-const ProductCardActions = ({ productData }: { productData: IProduct }) => {
+const ProductCardActions = ({
+  productData,
+  classes,
+}: {
+  productData: IProduct;
+  classes?: ClassValue;
+}) => {
   const { state, dispatch } = useAppState();
 
   return (
-    <div className="flex-start gap-4 mb-6 lg:mb-0">
+    <div className={cn("flex-start gap-4", classes)}>
       <CartAction
         state={state}
         dispatch={dispatch}
         RenderComponent={IconBased}
         productData={productData}
       />
-      <Like state={state} dispatch={dispatch} productId={productData.id} />
+      <Like state={state} dispatch={dispatch} product={productData} />
     </div>
   );
 };

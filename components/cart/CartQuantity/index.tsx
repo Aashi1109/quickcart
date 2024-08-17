@@ -1,4 +1,4 @@
-import { updateQuantity } from "@/context/appAction";
+import { updateQuantity } from "@/context/actions/cart";
 import { cn } from "@/lib/utils";
 import { ICartProduct } from "@/types";
 import { Minus, Plus } from "lucide-react";

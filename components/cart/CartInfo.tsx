@@ -1,7 +1,7 @@
 import React from "react";
 import CartBilling from "./CartBilling";
 import CartTable from "./CartTable";
-import { IAppState } from "@/types";
+import { IAppState } from "@/types/context";
 
 const CartInfo = ({ cart }: { cart: IAppState["cart"] }) => {
   return (

@@ -11,7 +11,7 @@ const CartIcon: React.FC = () => {
   const productCount = state.cart.products.length;
 
   return (
-    <Link className="relative mr-0 md:mr-4" href={"/cart"}>
+    <Link className="relative mr-0 last:md:mr-4" href={"/cart"}>
       <ShoppingCart className="text-2xl" />
       {productCount > 0 && (
         <span className="absolute top-[-10px] right-[-10px] bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">

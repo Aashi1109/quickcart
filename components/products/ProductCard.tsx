@@ -1,8 +1,9 @@
+import { IProduct } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import Badge from "../Badge";
+import DynamicPrice from "../DynamicPrice";
 import ProductCardActions from "./ProductActions/ProductCardActions";
-import { IProduct } from "@/types";
 
 interface IProps {
   product: IProduct;
@@ -36,7 +37,7 @@ const ProductCard = ({ product }: IProps) => {
         </p>
 
         <div className="flex-between">
-          <p className="t font-medium">${product.price}</p>
+          <DynamicPrice price={product.price} />
           <ProductCardActions productData={product} />
         </div>
       </div>

@@ -44,3 +44,7 @@ export interface ICartTotals {
 export interface ICartProduct extends IProduct {
   quantity: number;
 }
+
+export type IStringKeyObject = {
+  [key: string]: string;
+};

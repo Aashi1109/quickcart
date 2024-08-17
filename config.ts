@@ -12,6 +12,7 @@ const config = {
   },
   exchangeRateAPI: {
     baseUrl: "https://v6.exchangerate-api.com/v6",
+    apiKey: process.env.EXCHANGE_RATE_API_KEY,
   },
 };
 
