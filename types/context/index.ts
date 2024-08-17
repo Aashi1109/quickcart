@@ -3,6 +3,7 @@ import { ICartProduct } from "..";
 export interface IAppState {
   cart: { products: ICartProduct[] };
   likedProducts: number[];
+  settings: { currency: string };
 }
 // Define the type for the cart actions
 export type IAppActions =

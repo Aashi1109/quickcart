@@ -10,6 +10,9 @@ const config = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     },
   },
+  exchangeRateAPI: {
+    baseUrl: "https://v6.exchangerate-api.com/v6",
+  },
 };
 
 export default config;
