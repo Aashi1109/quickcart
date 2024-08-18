@@ -1,5 +1,5 @@
 import { Session } from "next-auth";
-import { signIn, signOut } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import { FC } from "react";
 import WishList from "./WishList";
@@ -7,7 +7,9 @@ import WishList from "./WishList";
 const DesktopAuthActions: FC<{
   session?: Session | null;
   providers: any;
-}> = ({ session, providers }) => {
+  signoutHandler: () => void;
+  signInHandler: (providerId: any) => void;
+}> = ({ session, providers, signoutHandler, signInHandler }) => {
   return (
     <div className="sm:flex hidden">
       {session?.user ? (
@@ -16,7 +18,7 @@ const DesktopAuthActions: FC<{
           <button
             className="outline-button"
             type="button"
-            onClick={() => signOut()}
+            onClick={signoutHandler}
           >
             Signout
           </button>
@@ -37,7 +39,7 @@ const DesktopAuthActions: FC<{
                 className="outline-button"
                 type="button"
                 key={provider?.name}
-                onClick={() => signIn(provider?.id)}
+                onClick={() => signInHandler(provider?.id)}
               >
                 Sign in
               </button>

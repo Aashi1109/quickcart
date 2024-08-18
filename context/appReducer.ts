@@ -48,10 +48,29 @@ const appReducer = (state: IAppState, action: IAppActions): IAppState => {
         ...state,
         likedProducts: updatedLikedProducts,
       };
-    case "UPDATE_CURRENCY":
+    case "UPDATE_SETTINGS":
       return {
         ...state,
-        settings: { ...state.settings, currency: action.currency },
+        settings: { ...state.settings, ...action.settings },
+      };
+    case "SET_USER":
+      return {
+        ...state,
+        user: { ...action.user },
+      };
+    case "REMOVE_USER":
+      return {
+        ...state,
+        user: null,
+      };
+    case "INIT_STATE":
+      return {
+        cart: { products: action.payload.cart.products || [] },
+        likedProducts: action.payload.likedProducts || [],
+        settings: action.payload.settings || {
+          currency: { name: "USD", value: 1 },
+        },
+        user: action.payload.user,
       };
     default:
       return state;

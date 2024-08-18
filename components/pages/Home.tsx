@@ -1,9 +1,10 @@
 import { IProduct } from "@/types";
 import { CategoryList } from "../category";
 import { HorizontalProductScrollList } from "../scrolllist";
+import config from "@/config";
 
 const Home = async ({}) => {
-  const productsResp = await fetch("https://dummyjson.com/products?limit=60");
+  const productsResp = await fetch(`${config.productsAPIUrl}?limit=60`);
   const productsData = await productsResp.json();
 
   const { products = [] } = (productsData || {}) as { products: IProduct[] };

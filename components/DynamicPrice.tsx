@@ -16,7 +16,7 @@ const DynamicPrice = ({
   const symbol = CURRENCY_LABEL[name as keyof typeof CURRENCY_LABEL]?.symbol;
 
   return (
-    <p className="font-medium">
+    <p className="font-medium text-nowrap">
       {symbol ? symbol : name} {(price * value).toFixed(2)}
     </p>
   );

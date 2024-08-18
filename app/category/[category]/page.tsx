@@ -1,6 +1,7 @@
 import Pagination from "@/components/Pagination";
 import { ProductList } from "@/components/products";
 import { fetchAndFilterProducts } from "@/lib/helpers";
+import { capitalize } from "@/lib/utils";
 
 const page = async ({
   params,
@@ -33,10 +34,13 @@ const page = async ({
 
   // const filteredProducts =
   //   (productsData as { products: IProduct[] })?.products || [];
+  const formattedCategory = category.replace("-", " ");
 
   return (
     <div className="flex flex-col gap-6 min-h-[40vh]">
-      <p className="heading-1">Results for category: {category}</p>
+      <p className="heading-1">
+        Results for category: {capitalize(formattedCategory)}
+      </p>
       {filteredProducts && filteredProducts.length ? (
         <ProductList products={filteredProducts} classes="flex-wrap" />
       ) : (

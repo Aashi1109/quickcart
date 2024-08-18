@@ -5,7 +5,6 @@ import ProductCard from "./ProductCard";
 
 interface IProps {
   products: IProduct[];
-
   classes?: string;
 }
 

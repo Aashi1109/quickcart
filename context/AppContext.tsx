@@ -5,6 +5,7 @@ export const initialState: IAppState = {
   cart: { products: [] },
   likedProducts: [],
   settings: { currency: { name: "USD", value: 1 } },
+  user: null,
 };
 
 const AppContext = createContext<{

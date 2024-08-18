@@ -1,13 +1,15 @@
 import { Session } from "next-auth";
-import { signIn, signOut } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { FC, useState } from "react";
 
-const MobileAuthActions: FC<{ session?: Session | null; providers: any }> = ({
-  session,
-  providers,
-}) => {
+const MobileAuthActions: FC<{
+  session?: Session | null;
+  providers: any;
+  signoutHandler: () => void;
+  signInHandler: (providerId: any) => void;
+}> = ({ session, providers, signoutHandler, signInHandler }) => {
   const [toggleDropdown, setToggleDropdown] = useState(false);
   return (
     <div className="sm:hidden flex relative">
@@ -43,7 +45,7 @@ const MobileAuthActions: FC<{ session?: Session | null; providers: any }> = ({
                 className="button"
                 onClick={() => {
                   setToggleDropdown(false);
-                  signOut();
+                  signoutHandler();
                 }}
               >
                 Sign out
@@ -60,7 +62,7 @@ const MobileAuthActions: FC<{ session?: Session | null; providers: any }> = ({
                   className="black_btn"
                   type="button"
                   key={provider.name}
-                  onClick={() => signIn(provider.id)}
+                  onClick={() => signInHandler(provider.id)}
                 >
                   Sign in
                 </button>

@@ -1,3 +1,5 @@
+import { Types } from "mongoose";
+
 export interface IProduct {
   id: number;
   title: string;
@@ -47,4 +49,30 @@ export interface ICartProduct extends IProduct {
 
 export type IStringKeyObject = {
   [key: string]: string;
+};
+
+export type IUser = {
+  _id?: string;
+  name: string;
+  username: string;
+  email: string;
+  image?: string;
+  settings: { currency: ICurrencyItem };
+  likedProducts: Array<any>;
+};
+
+export type ICurrencyItem = {
+  name: string;
+  value: number;
+};
+
+export type ICart = {
+  userId?: string | Types.ObjectId;
+  products: ICartProduct[];
+  originalTotal: number;
+  discountedTotal: number;
+};
+
+export type ISettings = {
+  currency: ICurrencyItem;
 };
