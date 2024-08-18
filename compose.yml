@@ -1,7 +1,7 @@
 services:
   quickcart:
     build: .
-    image: aashishpal09/quickcart:1.0.0
+    image: aashishpal09/quickcart:1.0.1
     container_name: quickcart
     restart: always
     env_file:
