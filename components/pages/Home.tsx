@@ -1,11 +1,10 @@
+import { getProducts } from "@/actions/products";
 import { IProduct } from "@/types";
 import { CategoryList } from "../category";
 import { HorizontalProductScrollList } from "../scrolllist";
-import config from "@/config";
 
 const Home = async ({}) => {
-  const productsResp = await fetch(`${config.productsAPIUrl}?limit=60`);
-  const productsData = await productsResp.json();
+  const productsData = await getProducts(60);
 
   const { products = [] } = (productsData || {}) as { products: IProduct[] };
   // sort products by discount price
