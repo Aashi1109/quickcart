@@ -41,16 +41,6 @@
     }
   }
 
-  .footer::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-
-    background: red;
-    border-radius: 0 50% 0 0;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  }
   .card {
     @apply rounded-3xl shadow-sm;
   }
@@ -75,7 +65,11 @@
   }
 
   .dropdown_link {
-    @apply text-sm text-gray-700 hover:text-gray-500 font-medium;
+    @apply text-sm text-gray-700 hover:text-gray-500 font-medium flex-center gap-1;
+  }
+
+  .badge-black {
+    @apply text-[10px] font-medium rounded-full bg-black text-white h-4 w-4 inline-block flex-center;
   }
 }
 

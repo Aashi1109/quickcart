@@ -9,7 +9,7 @@ import MobileAuthActions from "./MobileAuthActions";
 
 const AuthActions = () => {
   const { data: session } = useSession();
-  const { dispatch } = useAppState();
+  const { dispatch, state } = useAppState();
 
   const [providers, setProviders] = useState<any>(null);
 
@@ -79,6 +79,8 @@ const AuthActions = () => {
         providers={providers}
         signoutHandler={signOutHandler}
         signInHandler={signInHandler}
+        cartProductsLength={state.cart.products.length}
+        likedProductsLength={state.likedProducts.length}
       />
     </>
   );

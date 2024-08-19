@@ -1,5 +1,4 @@
 import { Session } from "next-auth";
-import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { FC, useState } from "react";
@@ -9,7 +8,16 @@ const MobileAuthActions: FC<{
   providers: any;
   signoutHandler: () => void;
   signInHandler: (providerId: any) => void;
-}> = ({ session, providers, signoutHandler, signInHandler }) => {
+  cartProductsLength: number;
+  likedProductsLength: number;
+}> = ({
+  session,
+  providers,
+  signoutHandler,
+  signInHandler,
+  cartProductsLength,
+  likedProductsLength,
+}) => {
   const [toggleDropdown, setToggleDropdown] = useState(false);
   return (
     <div className="sm:hidden flex relative">
@@ -32,6 +40,9 @@ const MobileAuthActions: FC<{
                 onClick={() => setToggleDropdown(false)}
               >
                 Cart
+                {!!cartProductsLength && (
+                  <span className="badge-black">{cartProductsLength}</span>
+                )}
               </Link>
               <Link
                 href={"/liked-products"}
@@ -39,6 +50,9 @@ const MobileAuthActions: FC<{
                 onClick={() => setToggleDropdown(false)}
               >
                 Wishlist
+                {!!likedProductsLength && (
+                  <span className="badge-black">{likedProductsLength}</span>
+                )}
               </Link>
               <button
                 type="button"
